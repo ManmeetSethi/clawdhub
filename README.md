@@ -12,7 +12,7 @@
   <a href="#how-it-works">How It Works</a> &nbsp;&bull;&nbsp;
   <a href="#features">Features</a> &nbsp;&bull;&nbsp;
   <a href="#supported-terminals">Terminals</a> &nbsp;&bull;&nbsp;
-  <a href="#building-from-source">Build</a>
+  <a href="#project-structure">Source</a>
 </p>
 
 ---
@@ -29,25 +29,30 @@ ClawdHub gives you **Cmd+Tab for Claude Code**. Hold `Option+Command` to see all
   <img src="assets/panel.png" alt="ClawdHub panel showing active Claude Code sessions" width="700">
 </p>
 
+## Requirements
+
+- macOS 13.0 (Ventura) or later
+- Xcode 15+ (full IDE, not just Command Line Tools — the build uses `xcodebuild`)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed
+
 ## Installation
 
-### Download
+### One-liner
 
-> Coming soon — pre-built `.app` releases will be available here.
+```bash
+git clone https://github.com/ManmeetSethi/clawdhub.git && cd clawdhub && bash scripts/build.sh
+```
 
-### Build from Source
+This clones the repo, builds the app, installs it to `/Applications`, and launches it automatically. The onboarding wizard will guide you through the rest.
 
-Requires macOS 13.0+ and Xcode 15+.
+### Or open in Xcode
 
 ```bash
 git clone https://github.com/ManmeetSethi/clawdhub.git
-cd clawdhub
-bash scripts/build.sh
+open clawdhub/ClawdHub/ClawdHub.xcodeproj
 ```
 
-The built app will be at `build/DerivedData/Build/Products/Release/ClawdHub.app`. Drag it to your Applications folder.
-
-Or open `ClawdHub/ClawdHub.xcodeproj` in Xcode and hit Cmd+R.
+Then hit Cmd+R to build and run.
 
 ### First Launch
 
@@ -59,6 +64,15 @@ ClawdHub walks you through a guided onboarding:
 4. **Tutorial** — Practice the peek/cycle/open gesture hands-on
 
 After setup, start any new Claude Code session and it will appear in ClawdHub automatically.
+
+### Uninstalling
+
+```bash
+rm -rf /Applications/ClawdHub.app ~/.clawdhub
+defaults delete com.clawdhub.app
+```
+
+This removes the app, session data, and stored preferences. To also remove the hooks ClawdHub installed, delete the ClawdHub entries from `~/.claude/settings.json` under `hooks`.
 
 ## How It Works
 
@@ -110,27 +124,7 @@ ClawdHub installs lightweight shell hooks into Claude Code's [hook system](https
 | Kitty | AppleScript |
 | Warp | AppleScript |
 
-## Requirements
-
-- macOS 13.0 (Ventura) or later
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed
-- Accessibility permission (for global hotkey)
-
-## Building from Source
-
-```bash
-# Clone
-git clone https://github.com/ManmeetSethi/clawdhub.git
-cd clawdhub
-
-# Build via command line
-bash scripts/build.sh
-
-# Or open in Xcode
-open ClawdHub/ClawdHub.xcodeproj
-```
-
-### Project Structure
+## Project Structure
 
 ```
 ClawdHub/
@@ -145,8 +139,7 @@ ClawdHub/
 ├── Controllers/
 │   ├── PanelController.swift      # Floating panel (NSPanel)
 │   └── OnboardingController.swift # Guided setup wizard
-├── Views/                         # SwiftUI views
-└── Hooks/                         # Source hook scripts
+└── Views/                         # SwiftUI views
 ```
 
 ## Important Notes

@@ -23,7 +23,16 @@ APP_PATH="$BUILD_DIR/DerivedData/Build/Products/Release/ClawdHub.app"
 if [ -d "$APP_PATH" ]; then
     echo ""
     echo "Build succeeded!"
-    echo "App: $APP_PATH"
+
+    # Install to Applications
+    echo "Installing to /Applications..."
+    rm -rf /Applications/ClawdHub.app
+    cp -r "$APP_PATH" /Applications/ClawdHub.app
+    echo "Installed to /Applications/ClawdHub.app"
+
+    # Launch the app
+    echo "Launching ClawdHub..."
+    open /Applications/ClawdHub.app
 else
     echo ""
     echo "Build failed — check output above."
