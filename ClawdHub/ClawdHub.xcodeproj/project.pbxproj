@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAA00001 /* ClawdHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00101; };
+		AAA00002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00102; };
+		AAA00003 /* AgentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00103; };
+		AAA00004 /* AgentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00104; };
+		AAA00005 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00105; };
+		AAA00006 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00106; };
+		AAA00007 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00107; };
+		AAA00008 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00108; };
+		AAA00009 /* TerminalFocusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00109; };
+		AAA00010 /* HookRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00110; };
+		AAA00011 /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00111; };
+		AAA00012 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00112; };
+		AAA00013 /* StatusIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00113; };
+		AAA00014 /* AgentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00114; };
+		AAA00015 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00115; };
+		AAA00016 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00116; };
+		AAA00023 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00125; };
+		AAA00030 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00132; };
+		AAA00024 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00126; };
+		AAA00025 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00127; };
+		AAA00026 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00128; };
+		AAA00027 /* ClawdHubLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA00129; };
+		AAA00017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA00117; };
+		AAA00018 /* on-notification.sh in Resources */ = {isa = PBXBuildFile; fileRef = AAA00118; };
+		AAA00019 /* on-stop.sh in Resources */ = {isa = PBXBuildFile; fileRef = AAA00119; };
+		AAA00020 /* on-activity.sh in Resources */ = {isa = PBXBuildFile; fileRef = AAA00120; };
+		AAA00021 /* on-session-end.sh in Resources */ = {isa = PBXBuildFile; fileRef = AAA00123; };
+		AAA00022 /* on-user-prompt.sh in Resources */ = {isa = PBXBuildFile; fileRef = AAA00124; };
+		AAA00028 /* intro.aiff in Resources */ = {isa = PBXBuildFile; fileRef = AAA00130; };
+		AAA00029 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = AAA00131; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAA00100 /* ClawdHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClawdHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA00101 /* ClawdHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClawdHubApp.swift; sourceTree = "<group>"; };
+		AAA00102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAA00103 /* AgentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStatus.swift; sourceTree = "<group>"; };
+		AAA00104 /* AgentSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSession.swift; sourceTree = "<group>"; };
+		AAA00105 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		AAA00106 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		AAA00107 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		AAA00108 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		AAA00109 /* TerminalFocusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalFocusManager.swift; sourceTree = "<group>"; };
+		AAA00110 /* HookRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookRegistrar.swift; sourceTree = "<group>"; };
+		AAA00111 /* PanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
+		AAA00112 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		AAA00113 /* StatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusIndicator.swift; sourceTree = "<group>"; };
+		AAA00114 /* AgentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardView.swift; sourceTree = "<group>"; };
+		AAA00115 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		AAA00116 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AAA00117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAA00118 /* on-notification.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "on-notification.sh"; sourceTree = "<group>"; };
+		AAA00119 /* on-stop.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "on-stop.sh"; sourceTree = "<group>"; };
+		AAA00120 /* on-activity.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "on-activity.sh"; sourceTree = "<group>"; };
+		AAA00121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAA00122 /* ClawdHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClawdHub.entitlements; sourceTree = "<group>"; };
+		AAA00123 /* on-session-end.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "on-session-end.sh"; sourceTree = "<group>"; };
+		AAA00124 /* on-user-prompt.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "on-user-prompt.sh"; sourceTree = "<group>"; };
+		AAA00125 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		AAA00126 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AAA00127 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		AAA00128 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		AAA00129 /* ClawdHubLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClawdHubLogo.swift; sourceTree = "<group>"; };
+		AAA00130 /* intro.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = intro.aiff; sourceTree = "<group>"; };
+		AAA00131 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		AAA00132 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAA00200 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAA00300 = {
+			isa = PBXGroup;
+			children = (
+				AAA00301 /* ClawdHub */,
+				AAA00302 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAA00301 /* ClawdHub */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00101 /* ClawdHubApp.swift */,
+				AAA00102 /* AppDelegate.swift */,
+				AAA00121 /* Info.plist */,
+				AAA00122 /* ClawdHub.entitlements */,
+				AAA00303 /* Models */,
+				AAA00304 /* Managers */,
+				AAA00305 /* Controllers */,
+				AAA00306 /* Views */,
+				AAA00308 /* Resources */,
+				AAA00309 /* Hooks */,
+			);
+			path = ClawdHub;
+			sourceTree = "<group>";
+		};
+		AAA00302 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00100 /* ClawdHub.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAA00303 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00103 /* AgentStatus.swift */,
+				AAA00104 /* AgentSession.swift */,
+				AAA00105 /* Settings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AAA00304 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00106 /* SessionManager.swift */,
+				AAA00107 /* HotkeyManager.swift */,
+				AAA00108 /* NotificationManager.swift */,
+				AAA00109 /* TerminalFocusManager.swift */,
+				AAA00110 /* HookRegistrar.swift */,
+				AAA00125 /* PermissionManager.swift */,
+				AAA00132 /* AnalyticsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		AAA00305 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00111 /* PanelController.swift */,
+				AAA00127 /* OnboardingController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AAA00306 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00114 /* AgentCardView.swift */,
+				AAA00115 /* OverlayView.swift */,
+				AAA00116 /* SettingsView.swift */,
+				AAA00126 /* OnboardingView.swift */,
+				AAA00307 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AAA00307 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00112 /* VisualEffectView.swift */,
+				AAA00113 /* StatusIndicator.swift */,
+				AAA00128 /* ConfettiView.swift */,
+				AAA00129 /* ClawdHubLogo.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AAA00308 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00117 /* Assets.xcassets */,
+				AAA00130 /* intro.aiff */,
+				AAA00131 /* AppIcon.icns */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AAA00309 /* Hooks */ = {
+			isa = PBXGroup;
+			children = (
+				AAA00118 /* on-notification.sh */,
+				AAA00119 /* on-stop.sh */,
+				AAA00120 /* on-activity.sh */,
+				AAA00123 /* on-session-end.sh */,
+				AAA00124 /* on-user-prompt.sh */,
+			);
+			path = Hooks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAA00400 /* ClawdHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA00500;
+			buildPhases = (
+				AAA00401 /* Sources */,
+				AAA00200 /* Frameworks */,
+				AAA00402 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClawdHub;
+			productName = ClawdHub;
+			productReference = AAA00100 /* ClawdHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAA00600 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AAA00400 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AAA00601;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAA00300;
+			productRefGroup = AAA00302 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA00400 /* ClawdHub */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAA00402 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA00017 /* Assets.xcassets in Resources */,
+				AAA00018 /* on-notification.sh in Resources */,
+				AAA00019 /* on-stop.sh in Resources */,
+				AAA00020 /* on-activity.sh in Resources */,
+				AAA00021 /* on-session-end.sh in Resources */,
+				AAA00022 /* on-user-prompt.sh in Resources */,
+				AAA00028 /* intro.aiff in Resources */,
+				AAA00029 /* AppIcon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAA00401 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA00001 /* ClawdHubApp.swift in Sources */,
+				AAA00002 /* AppDelegate.swift in Sources */,
+				AAA00003 /* AgentStatus.swift in Sources */,
+				AAA00004 /* AgentSession.swift in Sources */,
+				AAA00005 /* Settings.swift in Sources */,
+				AAA00006 /* SessionManager.swift in Sources */,
+				AAA00007 /* HotkeyManager.swift in Sources */,
+				AAA00008 /* NotificationManager.swift in Sources */,
+				AAA00009 /* TerminalFocusManager.swift in Sources */,
+				AAA00010 /* HookRegistrar.swift in Sources */,
+				AAA00011 /* PanelController.swift in Sources */,
+				AAA00012 /* VisualEffectView.swift in Sources */,
+				AAA00013 /* StatusIndicator.swift in Sources */,
+				AAA00014 /* AgentCardView.swift in Sources */,
+				AAA00015 /* OverlayView.swift in Sources */,
+				AAA00016 /* SettingsView.swift in Sources */,
+				AAA00023 /* PermissionManager.swift in Sources */,
+				AAA00024 /* OnboardingView.swift in Sources */,
+				AAA00025 /* OnboardingController.swift in Sources */,
+				AAA00026 /* ConfettiView.swift in Sources */,
+				AAA00027 /* ClawdHubLogo.swift in Sources */,
+				AAA00030 /* AnalyticsManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AAA00501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ClawdHub/ClawdHub.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClawdHub/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ClawdHub";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clawdhub.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AAA00502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ClawdHub/ClawdHub.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClawdHub/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ClawdHub";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clawdhub.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AAA00602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAA00603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAA00500 /* Build configuration list for PBXNativeTarget "ClawdHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA00501 /* Debug */,
+				AAA00502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA00601 /* Build configuration list for PBXProject "ClawdHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA00602 /* Debug */,
+				AAA00603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAA00600 /* Project object */;
+}
