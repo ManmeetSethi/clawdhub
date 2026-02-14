@@ -1,41 +1,47 @@
 <p align="center">
-  <img src="assets/hero.png" alt="ClawdHub — Monitor. Switch. Control." width="700">
+  <img src="assets/hero.gif" alt="ClawdHub — keyboard gesture to switch between Claude Code agents" width="700">
+</p>
+
+<h3 align="center">Cmd+Tab for your Claude Code agents.</h3>
+
+<p align="center">
+  One keyboard gesture to see, switch, and jump between every Claude Code session on your Mac.
 </p>
 
 <p align="center">
-  <b>The command center for your Claude Code agents.</b><br>
-  A native macOS menubar app that lets you monitor, switch between, and control all your Claude Code sessions with a single keyboard gesture.
-</p>
-
-<p align="center">
-  <a href="#installation">Installation</a> &nbsp;&bull;&nbsp;
+  <a href="#installation">Install</a> &nbsp;&bull;&nbsp;
   <a href="#how-it-works">How It Works</a> &nbsp;&bull;&nbsp;
   <a href="#features">Features</a> &nbsp;&bull;&nbsp;
-  <a href="#supported-terminals">Terminals</a> &nbsp;&bull;&nbsp;
-  <a href="#project-structure">Source</a>
+  <a href="#supported-terminals">Terminals</a>
 </p>
 
 ---
 
 ## The Problem
 
-You're running 3 Claude Code agents across different terminals. One finishes and needs a review. Another is stuck waiting for permission. The third is still churning. You're Alt-Tabbing between terminal windows, losing track of which agent is where.
+You fire up three Claude Code agents across different terminals. Hand off tasks. Go grab coffee.
 
-## The Solution
+Come back — one agent has been stuck waiting for permission for **12 minutes**. You didn't know. Now you're Alt-Tabbing through windows trying to find it, losing context, breaking flow.
 
-ClawdHub gives you **Cmd+Tab for Claude Code**. Hold `Option+Command` to see all your agents at a glance. Tap `Command` to pick one. Release `Option` to jump straight to its terminal. The whole interaction takes under a second.
+This is the multi-agent tax: the more agents you run, the more time you spend managing windows instead of shipping code.
 
-<p align="center">
-  <img src="assets/panel.png" alt="ClawdHub panel showing active Claude Code sessions" width="700">
-</p>
+## The Fix
 
-## Requirements
+**Hold ⌥⌘.** Every agent appears in a floating panel — name, status, what it's working on. **Tap ⌘** to cycle. **Release ⌥** to jump straight to that terminal.
+
+Under a second. Your hands never leave the keyboard.
+
+> Think Cmd+Tab, but for your AI fleet. The gesture becomes muscle memory after a few uses — just like app switching.
+
+ClawdHub also watches in the background. When an agent gets stuck waiting for permission, you get a **macOS notification** immediately — no need to keep checking.
+
+## Installation
+
+### Requirements
 
 - macOS 13.0 (Ventura) or later
 - Xcode 15+ (full IDE, not just Command Line Tools — the build uses `xcodebuild`)
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed
-
-## Installation
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
 
 ### One-liner
 
@@ -43,7 +49,7 @@ ClawdHub gives you **Cmd+Tab for Claude Code**. Hold `Option+Command` to see all
 git clone https://github.com/ManmeetSethi/clawdhub.git && cd clawdhub && bash scripts/build.sh
 ```
 
-This clones the repo, builds the app, installs it to `/Applications`, and launches it automatically. The onboarding wizard will guide you through the rest.
+Builds, installs to `/Applications`, and launches. The onboarding wizard handles the rest.
 
 ### Or open in Xcode
 
@@ -52,18 +58,7 @@ git clone https://github.com/ManmeetSethi/clawdhub.git
 open clawdhub/ClawdHub/ClawdHub.xcodeproj
 ```
 
-Then hit Cmd+R to build and run.
-
-### First Launch
-
-ClawdHub walks you through a guided onboarding:
-
-1. **Accessibility** — Grant permission so ClawdHub can detect the global hotkey
-2. **Notifications** — Allow alerts when agents need your attention
-3. **Hooks** — ClawdHub installs [Claude Code hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) to track session state
-4. **Tutorial** — Practice the peek/cycle/open gesture hands-on
-
-After setup, start any new Claude Code session and it will appear in ClawdHub automatically.
+Hit ⌘R to build and run.
 
 ### Uninstalling
 
@@ -72,7 +67,7 @@ rm -rf /Applications/ClawdHub.app ~/.clawdhub
 defaults delete com.clawdhub.app
 ```
 
-This removes the app, session data, and stored preferences. To also remove the hooks ClawdHub installed, delete the ClawdHub entries from `~/.claude/settings.json` under `hooks`.
+To also remove hooks, delete ClawdHub entries from `~/.claude/settings.json` under `hooks`.
 
 ## How It Works
 
@@ -80,76 +75,53 @@ This removes the app, session data, and stored preferences. To also remove the h
 
 | Action | What Happens |
 |--------|-------------|
-| Hold **Option + Command** | Panel appears — see all your agents at a glance |
-| Tap **Command** (keep holding Option) | Cycle through agents one by one |
-| Release **Option** | Jump to the selected agent's terminal window |
+| Hold **⌥ + ⌘** | Panel appears — all your agents at a glance |
+| Tap **⌘** (keep holding ⌥) | Cycle through agents one by one |
+| Release **⌥** | Jump to the selected agent's terminal |
 
-That's it. Three moves, under a second.
+Three moves, under a second.
 
-### Persistent Mode
-
-Hold Option+Command for more than a second, then release both. The panel stays open so you can browse. Press **1–9** to jump to an agent by number, or **Escape** to dismiss.
+**Persistent mode:** Hold ⌥⌘ for more than a second, then release both. The panel stays pinned. Press **1–9** to jump by number, or **Esc** to dismiss.
 
 ### Behind the Scenes
 
-ClawdHub installs lightweight shell hooks into Claude Code's [hook system](https://docs.anthropic.com/en/docs/claude-code/hooks). These hooks write session state to `~/.clawdhub/sessions.json` whenever an agent starts working, finishes, or needs input. ClawdHub watches this file and keeps the dashboard in sync.
+ClawdHub installs lightweight shell hooks into Claude Code's [hook system](https://docs.anthropic.com/en/docs/claude-code/hooks). These write session state to `~/.clawdhub/sessions.json` whenever an agent starts, finishes, or needs input. ClawdHub watches this file and keeps the panel in sync — no polling, no API calls.
 
 | Event | What Gets Tracked |
 |-------|-------------------|
-| You send a message | Session created/updated as **Running** |
-| Claude uses a tool | Current tool + file/command captured |
-| Claude needs permission | Status flips to **Waiting** + notification sent |
-| Claude finishes | Status set to **Done** |
-| Session ends | Removed from dashboard |
+| You send a message | Session created as **Running** |
+| Claude uses a tool | Current tool + file captured |
+| Claude needs permission | Status → **Waiting** + notification |
+| Claude finishes | Status → **Done** |
+| Session ends | Removed from panel |
 
 ## Features
 
-- **Real-time status** — Running, Waiting, Done — with live activity details (current tool, file being edited, command being run)
-- **Smart notifications** — Get alerted only when an agent needs your attention (permission prompts, input requests)
-- **Menubar indicator** — Color-coded dot shows fleet status at a glance: green (all clear), yellow (working), orange pulsing (needs attention)
-- **Multi-terminal support** — Automatically detects and switches to the right terminal window
-- **Zero config** — No API keys, no server, no accounts. Everything runs locally.
+- **Real-time status** — Running, Waiting, Done — with live activity (current tool, file, command)
+- **Instant notifications** — macOS alerts the moment an agent needs attention
+- **Menubar indicator** — Color-coded dot: green (all clear), orange pulsing (needs attention)
+- **Multi-terminal** — Detects and switches to the correct window across 9 terminals
+- **Zero config** — No API keys, no server, no accounts. Fully local.
 
 ## Supported Terminals
 
 | Terminal | Focus Method |
 |----------|-------------|
-| Terminal.app | AppleScript |
-| iTerm2 | AppleScript |
-| VS Code | AppleScript + bundle ID |
-| Cursor | CLI (`cursor -r`) |
-| Ghostty | AppleScript + bundle ID |
-| WezTerm | AppleScript + bundle ID |
-| Alacritty | AppleScript |
-| Kitty | AppleScript |
-| Warp | AppleScript |
+| Terminal.app | AppleScript (TTY window matching) |
+| iTerm2 | AppleScript (TTY session matching) |
+| Cursor | CLI (`cursor -r`) + activation |
+| VS Code | CLI (`code -r`) + activation |
+| Ghostty | Bundle ID activation |
+| WezTerm | Bundle ID activation |
+| Alacritty | Bundle ID activation |
+| Kitty | Bundle ID activation |
+| Warp | Bundle ID activation |
 
-## Project Structure
+## Notes
 
-```
-ClawdHub/
-├── AppDelegate.swift              # Lifecycle + wiring
-├── Models/                        # Session, status, settings
-├── Managers/
-│   ├── SessionManager.swift       # File watcher + state
-│   ├── HotkeyManager.swift        # Global hotkey detection
-│   ├── HookRegistrar.swift        # Hook script deployment
-│   ├── TerminalFocusManager.swift # Terminal window switching
-│   └── NotificationManager.swift  # macOS notifications
-├── Controllers/
-│   ├── PanelController.swift      # Floating panel (NSPanel)
-│   └── OnboardingController.swift # Guided setup wizard
-└── Views/                         # SwiftUI views
-```
-
-## Important Notes
-
-- **Only new sessions are tracked.** Claude Code reads hooks at startup — restart any running sessions after installing ClawdHub to pick them up.
-- **Hooks are redeployed on launch.** ClawdHub refreshes its hooks every time it starts, so updates are automatic.
-- **Ad-hoc builds may need TCC reset.** If accessibility stops working after a rebuild, run:
-  ```bash
-  tccutil reset Accessibility com.clawdhub.app
-  ```
+- **New sessions only.** Claude Code reads hooks at startup — restart running sessions after installing ClawdHub.
+- **Hooks auto-refresh.** ClawdHub redeploys hooks on every launch.
+- **TCC reset after rebuild.** If accessibility breaks: `tccutil reset Accessibility com.clawdhub.app`
 
 ## License
 
