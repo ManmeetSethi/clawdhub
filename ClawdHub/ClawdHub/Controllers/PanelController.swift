@@ -64,8 +64,11 @@ class PanelController: ObservableObject {
         }
     }
 
-    func hidePanel() {
-        guard let panel = panel else { return }
+    func hidePanel(completion: (() -> Void)? = nil) {
+        guard let panel = panel else {
+            completion?()
+            return
+        }
 
         removeClickOutsideMonitor()
 
@@ -77,6 +80,7 @@ class PanelController: ObservableObject {
             panel.orderOut(nil)
             self?.isPeekMode = false
             self?.isPersistent = false
+            completion?()
         })
     }
 
@@ -88,9 +92,11 @@ class PanelController: ObservableObject {
 
     func confirmSelection() {
         guard let idx = selectedIndex else {
+            print("[PanelController] confirmSelection — no selectedIndex, hiding panel")
             hidePanel()
             return
         }
+        print("[PanelController] confirmSelection — selectedIndex: \(idx)")
         selectAgent(at: idx)
     }
 
@@ -99,8 +105,12 @@ class PanelController: ObservableObject {
         guard index >= 1 && index <= sortedSessions.count else { return }
 
         let session = sortedSessions[index - 1]
-        onAgentSelected?(session)
-        hidePanel()
+        print("[PanelController] selectAgent — index: \(index), session: \(session.id), terminal: \(session.terminal)")
+        // Hide panel and wait for orderOut to complete before activating terminal.
+        // orderOut restores the focus stack, so activating before it fires gets undone.
+        hidePanel { [weak self] in
+            self?.onAgentSelected?(session)
+        }
     }
 
     // MARK: - Panel Creation
@@ -140,8 +150,10 @@ class PanelController: ObservableObject {
             onAgentSelected: { [weak self] session in
                 guard let self = self else { return }
                 if self.isPeekMode { return }  // Block clicks during peek
-                self.onAgentSelected?(session)
-                self.hidePanel()
+                // Hide panel and wait for orderOut before activating terminal
+                self.hidePanel {
+                    self.onAgentSelected?(session)
+                }
             },
             onDismiss: { [weak self] in
                 self?.hidePanel()

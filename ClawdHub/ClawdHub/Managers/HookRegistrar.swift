@@ -127,8 +127,8 @@ class HookRegistrar {
 
         # Gather context
         CWD=$(pwd)
-        TTY=$(tty 2>/dev/null | tr -d '\\n' || echo "unknown")
-        [[ "$TTY" == "not a tty" || "$TTY" == *"not a tty"* || -z "$TTY" ]] && TTY="unknown"
+        TTY=$(ps -o tty= -p $PPID 2>/dev/null | tr -d ' ')
+        if [ -n "$TTY" ] && [ "$TTY" != "??" ]; then TTY="/dev/$TTY"; else TTY="unknown"; fi
         TERM_PROGRAM="${TERM_PROGRAM:-unknown}"
         TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
@@ -268,8 +268,8 @@ class HookRegistrar {
 
         # Gather context
         CWD=$(pwd)
-        TTY=$(tty 2>/dev/null | tr -d '\\n' || echo "unknown")
-        [[ "$TTY" == "not a tty" || "$TTY" == *"not a tty"* || -z "$TTY" ]] && TTY="unknown"
+        TTY=$(ps -o tty= -p $PPID 2>/dev/null | tr -d ' ')
+        if [ -n "$TTY" ] && [ "$TTY" != "??" ]; then TTY="/dev/$TTY"; else TTY="unknown"; fi
         TERM_PROGRAM="${TERM_PROGRAM:-unknown}"
         TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
@@ -315,8 +315,8 @@ class HookRegistrar {
 
         # Gather context
         CWD=$(pwd)
-        TTY=$(tty 2>/dev/null | tr -d '\\n' || echo "unknown")
-        [[ "$TTY" == "not a tty" || "$TTY" == *"not a tty"* || -z "$TTY" ]] && TTY="unknown"
+        TTY=$(ps -o tty= -p $PPID 2>/dev/null | tr -d ' ')
+        if [ -n "$TTY" ] && [ "$TTY" != "??" ]; then TTY="/dev/$TTY"; else TTY="unknown"; fi
         TERM_PROGRAM="${TERM_PROGRAM:-unknown}"
         TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
