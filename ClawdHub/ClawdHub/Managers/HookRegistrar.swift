@@ -28,8 +28,8 @@ class HookRegistrar {
     // MARK: - Public Methods
 
     func registerHooksIfNeeded() {
-        clearSessionsOnFirstInstall()
         createDirectories()
+        clearSessionsOnFirstInstall()
         createHookScripts()
         updateClaudeSettings()
     }
@@ -78,8 +78,8 @@ class HookRegistrar {
     done
     trap 'rmdir "$LOCKDIR" 2>/dev/null' EXIT
 
-    # Ensure file exists and is valid JSON
-    [ ! -f "$SESSIONS_FILE" ] && echo "[]" > "$SESSIONS_FILE"
+    # Ensure file exists, is non-empty, and is valid JSON
+    [ ! -s "$SESSIONS_FILE" ] && echo "[]" > "$SESSIONS_FILE"
     /usr/bin/jq '.' "$SESSIONS_FILE" > /dev/null 2>&1 || echo "[]" > "$SESSIONS_FILE"
     """
 
