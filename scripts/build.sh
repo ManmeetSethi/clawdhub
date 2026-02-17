@@ -70,8 +70,13 @@ if [ -d "$APP_PATH" ]; then
     cp -r "$APP_PATH" /Applications/ClawdHub.app
     echo "Installed to /Applications/ClawdHub.app"
 
-    # Launch the app
+    # Relaunch the app (quit existing instance first — `open` won't restart a running app)
     echo "Launching ClawdHub..."
+    osascript -e 'tell application "ClawdHub" to quit' 2>/dev/null
+    sleep 1
+    # Fallback: force kill if graceful quit didn't work
+    pkill -x ClawdHub 2>/dev/null
+    sleep 0.5
     open /Applications/ClawdHub.app
 else
     echo ""

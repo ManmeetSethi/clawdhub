@@ -182,13 +182,27 @@ class SessionManager: ObservableObject {
             // Filter out stale sessions:
             // - Any session older than 24 hours (likely orphaned)
             // - Any session started before hooks were installed
+            // - Any session whose TTY device no longer exists (terminal was closed)
+            // - Any session with unknown TTY that hasn't updated in 10 minutes
             let twentyFourHoursAgo = Date().addingTimeInterval(-86400)
+            let tenMinutesAgo = Date().addingTimeInterval(-600)
             let hookInstalledAt = UserDefaults.standard.double(forKey: "hookInstalledAt")
             let installDate = hookInstalledAt > 0 ? Date(timeIntervalSince1970: hookInstalledAt) : nil
 
             let filteredSessions = loadedSessions.filter { session in
                 if session.updatedAt < twentyFourHoursAgo { return false }
                 if let installDate = installDate, session.startedAt < installDate { return false }
+
+                // TTY liveness check — catches sessions orphaned by killed terminals
+                let tty = session.tty
+                if !tty.isEmpty && tty != "unknown" {
+                    // Known TTY: check if the device file still exists
+                    if !FileManager.default.fileExists(atPath: tty) { return false }
+                } else {
+                    // Unknown TTY: use a shorter staleness window (10 minutes)
+                    if session.updatedAt < tenMinutesAgo { return false }
+                }
+
                 return true
             }
 
@@ -232,22 +246,6 @@ class SessionManager: ObservableObject {
     }
 
     // MARK: - Session Cleanup
-
-    /// Removes stale sessions that no longer have an active TTY
-    func cleanupStaleSessions() {
-        let activeSessions = sessions.filter { session in
-            // Check if TTY still exists and has an active process
-            let tty = session.tty
-            guard !tty.isEmpty && tty != "unknown" else { return false }
-
-            // Simple check: see if the TTY device exists
-            return FileManager.default.fileExists(atPath: tty)
-        }
-
-        if activeSessions.count != sessions.count {
-            saveSessions(activeSessions)
-        }
-    }
 
     /// Removes a specific session
     func removeSession(id: String) {
